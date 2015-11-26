@@ -7,7 +7,7 @@ $('#members').on("click", function() {
   login();
 });
 
-
+// function for login users
 function login() {
   Ref.authWithOAuthPopup("google", function(error, auth) {
     if (!error) {
@@ -18,6 +18,7 @@ function login() {
   });
 }
 
+// checks if user is logged in
 function logged_in() {
   var authData = Ref.getAuth();
   if (authData) {
@@ -30,17 +31,17 @@ function logged_in() {
   }
 }
 
-if (logged_in()) {
-  var authData = Ref.getAuth();
-  var uid = Ref.child("users");
+// if (logged_in()) {
+//   var authData = Ref.getAuth();
+//   var uid = Ref.child("users");
 
-  uid.push().set({
-    user_name: authData.google.displayName
-  });
+//   uid.push().set({
+//     user_name: authData.google.displayName
+//   });
 
-}
+// }
 
-// load older events as well as any newly added one...
+// Displaying events on the table
 Events.on("child_added", function(snap) {
   var events = snap.val();
   // console.log("all events", snap.key(), snap.val());
@@ -48,7 +49,7 @@ Events.on("child_added", function(snap) {
 });
 
 
-// save event
+// Adding New Event
 $('#eventRegisterSubmit').on("click", function() {
   if ($('#eventName').val() !== '') {
     Events
@@ -62,7 +63,7 @@ $('#eventRegisterSubmit').on("click", function() {
   }
 });
 
-// save attendee
+// Adding New Attendee
 $('#checkinSubmit').on("click", function() {
   console.log(eventId);
   if ($('#firstName').val() !== '') {
@@ -79,7 +80,7 @@ $('#checkinSubmit').on("click", function() {
 
 
 
-//prepare event object's HTML
+// fetching event data from the firebase
 var loadEvents = function(event, id) {
   console.log(event);
   if (event) {
@@ -100,7 +101,7 @@ var loadEvents = function(event, id) {
   }
 };
 
-// logout
+// Logging out of the system
 
 $('#logout').on("click", function log_out() {
   Ref.unauth();
