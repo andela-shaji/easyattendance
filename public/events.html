@@ -2,123 +2,143 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Events</title>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" type="text/css">
-  <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <meta charset="UTF-8">
+    <title>Events</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    
 </head>
 
 <body onload="auth()">
- 
-  <div class="container" id="events">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h1>List of Events
-          <button type="button" class="btn pull-right btn-primary" data-toggle="modal" data-tooltip = "true" data-placement="bottom" title="Add Event" data-target= "#addEventModal" id="checkin">+</i></button>
-        </h1>
-      </div>
-      <div class="panel-body">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th> Name</th>
-              <th> Time</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody id="eventList">
-          </tbody>
-        </table>
-        <!--Register Event modal-->
-        <div class="modal fade" id="addEventModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Add Event</h4>
-              </div>
-              <div class="modal-body">
-                <form method="post" name="eventForm">
-                  <div class="form-group">
-                    <input type="text" class="form-control" id="eventName" placeholder="Event Name">
-                  </div>
-                  <div class="form-group">
-                    <input type="date" class="form-control" id="eventDate">
-                  </div>
-                  <div class="form-group">
-                    <input type="email" class="form-control" id="eventEmail" placeholder="E-mail">
-                  </div>
-                  <button type="submit" class="btn btn-default" id="eventRegisterSubmit">Submit</button>
-                </form>
-              </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Welcome to Easy Attendance</a>
             </div>
-          </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li>
+                        <a class="btn" id="logout">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-        <!--View Attendees modal-->
-        <div class="modal fade" id="todayModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">List of Attendees</h3>
-              </div>
-              <div class="modal-body">
-                <table class="table table-striped" id="todaysregister">
-                  <thead>
-                    <tr>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Email</th>
-                    </tr>
-                  </thead>
-                  <tbody id="attendeeList"></tbody>
+        <!-- /.container -->
+    </nav>
+    <div class="container" id="events">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1>List of Events
+            <button type="button" class="btn pull-right btn-primary" data-toggle="modal" data-tooltip = "true" data-placement="bottom" title="Add Event" data-target= "#addEventModal" id="checkin">+</i></button>
+          </h1>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th> Name</th>
+                            <th> Time</th>
+                            <th> Location</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventList">
+                    </tbody>
                 </table>
-              </div>
+                <!--Register Event modal-->
+                <div class="modal fade" id="addEventModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">Add Event</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" name="eventForm">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="eventName" placeholder="Event Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="date" class="form-control" id="eventDate">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="eventEmail" placeholder="E-mail">
+                                    </div>
+                                    <button type="submit" class="btn btn-default" id="eventRegisterSubmit">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--View Attendees modal-->
+                <div class="modal fade" id="todayModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h3 class="modal-title">List of Attendees</h3>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table table-striped" id="todaysregister">
+                                    <thead>
+                                        <tr>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="attendeeList"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--View Check-In modal-->
+                <div class="modal fade" id="checkInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">Check-In</h4>
+                            </div>
+                            <div class="modal-body">
+                                <h3><span id="todaysdate2"></span></h3>
+                                <div id="counter"></div>
+                                <form name="attendeeForm">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="email" placeholder="E-mail">
+                                    </div>
+                                    <button type="submit" class="btn btn-default" id="checkinSubmit">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
             </div>
-          </div>
         </div>
-        <!--View Check-In modal-->
-        <div class="modal fade" id="checkInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Check-In</h4>
-              </div>
-              <div class="modal-body">
-                <h3><span id="todaysdate2"></span></h3>
-                <div id="counter"></div>
-                <form name="attendeeForm">
-                  <div class="form-group">
-                    <input type="text" class="form-control" id="firstName" placeholder="First Name">
-                  </div>
-                  <div class="form-group">
-                    <input type="text" class="form-control" id="lastName" placeholder="Last Name">
-                  </div>
-                  <div class="form-group">
-                    <input type="email" class="form-control" id="email" placeholder="E-mail">
-                  </div>
-                  <button type="submit" class="btn btn-default" id="checkinSubmit">Submit</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr>
-      </div>
     </div>
-  </div>
-  <hr>
-
-  <!--JQuery Script -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <!--Bootstrap Script -->
-  <script src="js/bootstrap.min.js"></script>
-  <!--Firebase Script -->
-  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-  <!--Custom Script -->
-  <script src="js/functions.js"></script>
+    <hr>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src="js/functions.js"></script>
 </body>
 
 </html>

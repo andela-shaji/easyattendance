@@ -1,7 +1,4 @@
-body {
-  min-height: 50px;
-  
-}
+
 
 
 .row {
@@ -62,19 +59,8 @@ line-height: 1.5;
 	font-size: 24px;
 
 	text-align: center;
-
 }
 
-.inputwrapper {
-	float:left;
-	width:100%;
-	margin-right:80px;
-}.inputwrapper input {
-	
-	width:90%;
-	display:inline;
-	
-}
 #events {
 	padding-top: 70px;
 	width: 60%;
@@ -87,29 +73,9 @@ line-height: 1.5;
 
 
 
- @media (min-width: 768px) and (max-width: 1420px) {
-
-.logo {
-
-	font-size: 16px;
-
-}
-
-}
-
+ 
 @media (min-width: 768px) and (max-width: 990px) {
 
-.navbar {
-
-	min-height: 30px;
-
-}
-
-.menu li a {
-
-	padding: 8px !important;
-
-}
 
 .text-banner {
 
@@ -124,67 +90,15 @@ line-height: 1.5;
 	font-size: 45px;
 
 }
-
 .text-banner p {
 
 	font-size: 20px;
 
 }
-
-
-
 }
 
  @media (min-width: 120px) and (max-width: 768px) {
 
-.logo {
-
-	margin: 15px 0px;
-
-	position: absolute;
-
-	font-size: 15px;
-
-}
-
-.navb {
-
-	margin-top: 17px;
-
-	position: absolute;
-
-	right: 0px;
-	margin-right:0px;
-
-}
-
-.menu {
-
-	width: 100%;
-
-}
-
-.menu li a {
-
-	width: 100%;
-
-	padding: 10px;
-
-}
-
-.navb {
-
-	margin-top: 17px;
-
-}
-
-.navi {
-
-	border: none;
-
-	z-index: 2;
-
-}
 
 .text-banner {
 
@@ -207,27 +121,6 @@ line-height: 1.5;
 .text-banner p {
 
 	font-size: 14px;
-
-}
-
-.menu li {
-
-	float: none;
-
-	width: 100%;
-
-}
-
-.menu li:after {
-
-	content: '';
-
-}
-
-.menubox {
-
-	background-color: #333;
-
 }
 
 .fullbg {
@@ -245,20 +138,14 @@ header {
 .menubox {
 
 	margin-top: 73px;
-
 }
-
-
 
 .header-text {
 
 	font-size: 16px;
 
 	text-align: center;
-
 }
-
-
 
 }
 
