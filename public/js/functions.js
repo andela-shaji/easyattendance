@@ -2,6 +2,8 @@
 var Ref = new Firebase("https://easyattendance.firebaseio.com");
 var Events = Ref.child("events");
 var eventId;
+var aTime = new Date();
+var attendeeTime = aTime.toLocaleTimeString();
 //login the users
 $('#log-in').on("click", function() {
   login();
@@ -68,7 +70,8 @@ $('#checkinSubmit').on("click", function(e) {
       .push({
         firstname: $('#firstName').val(),
         lastname: $('#lastName').val(),
-        email: $('#email').val()
+        email: $('#email').val(),
+        arrivaltime: attendeeTime
       });
       attendeeForm.reset();
   } else {
@@ -98,6 +101,8 @@ function loadAttendees(attendee) {
   html += '<td>' + attendee.firstname + '</td>';
   html += '<td>' + attendee.lastname + '</td>';
   html += '<td>' + attendee.email + '</td>';
+  html += '<td>' + attendee.arrivaltime + '</td>';
+
   html += '</tr>';
   return html;
 }
