@@ -79,10 +79,13 @@ $('#checkinSubmit').on("click", function(e) {
   }
 });
 
+var counter = 0;
 // fetching attendees' data from the firebase
 var fetchAttendees = function(id) {
   Events.child(id).child('attendees').on("child_added", function(snap) {
     //console.log("added", snap.key(), snap.val());
+    counter++;
+
     $('#attendeeList').append(loadAttendees(snap.val()));
 
   });
@@ -97,7 +100,8 @@ function getId(id) {
 function loadAttendees(attendee) {
   console.log(attendee);
   var html = '';
-  html += '<tr class=" eventitem">';
+  html += 
+  html += '<tr class=" attendeeitem">';
   html += '<td>' + attendee.firstname + '</td>';
   html += '<td>' + attendee.lastname + '</td>';
   html += '<td>' + attendee.email + '</td>';
